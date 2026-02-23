@@ -30,16 +30,5 @@ public class StudentService {
     public void deleteStudent(ObjectId myId){
         studentEnteryRepos.deleteById(myId);
     }
-
-    public void updateStudentInfo(ObjectId myId, Student newEntry){
-        Student oldEntry = studentEnteryRepos.findById(myId).orElse(null);
-        if(oldEntry!=null){
-            oldEntry.setAge(newEntry.getAge()!=oldEntry.getAge() ? newEntry.getAge():oldEntry.getAge());
-            oldEntry.setName(newEntry.getName()!=null && !newEntry.getName().equals("") ? newEntry.getName() :oldEntry.getName() );
-        }
-        studentEnteryRepos.save(oldEntry);
-    }
-
-
-
 }
+
